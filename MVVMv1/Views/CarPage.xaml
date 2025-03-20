@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMv1.Views.CarPage" Title="Информация о машине">
+    <StackLayout>
+        <StackLayout x:Name="carStack">
+            <Label Text="Название авто" />
+            <Entry Text="{Binding Name}" FontSize="Medium" />
+            <Label Text="СТС" />
+            <Entry Text="{Binding CTC}" FontSize="Medium" />
+            <Label Text="Собственник" />
+            <Entry Text="{Binding Owner}" FontSize="Medium" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="Добавить" Command="{Binding ListViewModel.SaveCarCommand}" CommandParameter="{Binding}" />
+            <Button Text="Удалить" Command="{Binding ListViewModel.DeleteCarCommand}" CommandParameter="{Binding}" />
+            <Button Text="Назад" Command="{Binding Path=ListViewModel.BackCommand}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
